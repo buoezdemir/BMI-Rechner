@@ -1,0 +1,64 @@
+
+h1, h2 {
+    text-align: center;
+}
+
+form {
+    width: 450px;
+    height: 220px;
+    margin: auto;
+}
+
+
+label {
+    display: block;
+
+}
+
+.block {
+    width: 215px;
+    height: 70px;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 10px;
+
+}
+
+.radio {
+
+}
+
+input, select {
+    width: 210px;
+}
+
+input[type=submit], input[type=button] {
+    margin-top: 15px;
+}
+
+p {
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: blue;
+}
+
+#grades {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 450px;
+    margin: 0 auto;
+}
+
+th, td {
+    text-align: center;
+}
