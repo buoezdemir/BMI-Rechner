@@ -1,11 +1,7 @@
 function clearForm() {
 
-    document.getElementById('form_grade').reset();
-
-
+    document.getElementById('form_bmi').reset();
     document.getElementsByTagName('input').name.value = "";
-
-    document.getElementById('d').value = "";
     document.getElementById('w').value = "";
     document.getElementById('h').value = "";
 

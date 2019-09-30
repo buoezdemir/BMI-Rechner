@@ -11,11 +11,9 @@
 <?php
 
 require "lib/func.inc.php";
-
-$bmi = "";
 $name = "";
-$height = "";
-$weight = "";
+$height = 0;
+$weight = 0;
 $gender = "";
 
 if (isset($_POST['submit'])) {
@@ -31,12 +29,11 @@ if (isset($_POST['submit'])) {
     } else {
         echo "<p class='error'>Daten fehlerhaft</p>";
     }
-    calculate($weight, $height);
 }
 
 ?>
 
-<form id="form_grade" action="index.php" method="post">
+<form id="form_bmi" action="index.php" method="post">
 
     <div class="block">
         <label>Name:</label>
@@ -52,14 +49,14 @@ if (isset($_POST['submit'])) {
     </div>
 
     <div class="radio">
-        <label>Größe:</label>
+        <label>Größe in kg:</label>
         <input type="number" id="h" name="height" min="30" max="250" required="required" value="<?= htmlspecialchars($height) ?>"/>
         <?php if (isset($errors['height'])) echo "<div class='error'>" . $errors['height'] . "</div>"; ?>
 
     </div>
 
     <div class="block">
-        <label>Gewicht:</label>
+        <label>Gewicht in cm:</label>
         <input type="number" id="w" name="weight" min="10" max="300" required="required" value="<?= htmlspecialchars($weight) ?>"/>
         <?php if (isset($errors['weight'])) echo "<div class='error'>" . $errors['weight'] . "</div>"; ?>
     </div>
@@ -69,20 +66,25 @@ if (isset($_POST['submit'])) {
         <input type="submit" name="submit" value="Speichern" onclick=""/>
     </div>
     <div class="block">
+        <label><b>Info zum BMI:</b> <br> Unter 18.5 Untergewicht <br> 18.5-24.9 Normal <br> 25.0 - 29.9 Übergewicht <br> 30.0 und darüber Adipositas </label>
+    </div>
+    <div class="block">
         <input type="button"  value="Löschen" onclick="clearForm()"/>
     </div>
 
-    <div class="block">
-        <label><b>Info zum BMI:</b> <br> Unter 18.5 Untergewicht <br> 18.5-24.9 Normal <br> 25.0 - 29.9 Übergewicht <br> 30.0 und darüber Adipositas </label>
-    </div>
+
 
 </form>
 
-<div class="block">
-    <?php
-    echo "" .$bmi. "";
-    ?>
-</div>
+<?php
+    if(isset($_POST["submit"])){
+        echo "Dein BMI ist: " ;
+        echo round(calculate($weight,$height), 1);
+        echo" Das heisst: ";
+        echo typen(calculate($weight,$height));
+    }
+?>
+
 
 </body>
 </html>

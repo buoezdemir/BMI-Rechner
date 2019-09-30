@@ -2,10 +2,7 @@
 
 $errors = [];
 
-$weight = 0;
-$height= 0;
-$bmi = 0;
-$heightM = 0;
+
 
 function validateName($name)
 {
@@ -57,8 +54,25 @@ function validate($name, $weight, $height)
 }
 
 function calculate($weight, $height){
-    $heightM = $height/100;
-    $bmi = $weight/($heightM*$heightM);
+    $bmi = 0.0;
+    if(isset($_POST["submit"])){
+        $bmi = $weight/($height/100*$height/100);
+    }
     return $bmi;
-
 }
+
+function typen($bmi){
+    $ausgabe = 0;
+    if($bmi <= 18.5){
+        $ausgabe = "Untergewicht";
+    }elseif ($bmi > 18.5 && $bmi <= 24.9){
+        $ausgabe = "Normal";
+    }elseif ($bmi > 25.0  && $bmi <= 29.9){
+        $ausgabe = "Übergewicht";
+    }elseif ($bmi > 30){
+        $ausgabe = "Adipositas";
+    }
+    return $ausgabe;
+}
+
+?>

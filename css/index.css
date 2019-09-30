@@ -1,4 +1,7 @@
+body{
 
+
+}
 h1, h2 {
     text-align: center;
 }
@@ -13,6 +16,13 @@ form {
 label {
     display: block;
 
+}
+
+.testdiv {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
 }
 
 .block {
